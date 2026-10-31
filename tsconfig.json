@@ -14,7 +14,9 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "noUncheckedIndexedAccess": true,
-        "noEmit": true,
+        "noEmit": false,
+        "rootDir": "./src",
+        "outDir": "./.tsbuild",
         "sourceMap": true,
         "skipLibCheck": true
     },
