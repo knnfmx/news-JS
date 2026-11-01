@@ -43,7 +43,11 @@ export interface ErrorResponse extends NewsApiResponse {
 	message: string;
 }
 
-export interface EverythingParams {
+export interface NewsApiBaseParams {
+	apiKey: string;
+}
+
+export interface EverythingParams extends NewsApiBaseParams {
 	sources?: string;
 	q?: string;
 	from?: string;
@@ -54,7 +58,7 @@ export interface EverythingParams {
 	page?: number;
 }
 
-export interface SourcesParams {
+export interface SourcesParams extends NewsApiBaseParams {
 	category?: string;
 	language?: string;
 	country?: string;
