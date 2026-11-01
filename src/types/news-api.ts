@@ -44,9 +44,8 @@ export interface ErrorResponse extends NewsApiResponse {
 }
 
 export interface NewsApiBaseParams {
-	apiKey: string;
+	apiKey?: string;
 }
-
 export interface EverythingParams extends NewsApiBaseParams {
 	sources?: string;
 	q?: string;
