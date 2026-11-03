@@ -5,7 +5,7 @@ const MAX_NEWS_ITEMS = 10;
 const PLACEHOLDER_IMAGE = 'img/news_placeholder.jpg';
 
 class News {
-	public draw(data: Article[]): void {
+	public draw(data: ReadonlyArray<Readonly<Article>>): void {
 		const news = data.length >= MAX_NEWS_ITEMS ? data.slice(0, MAX_NEWS_ITEMS) : data;
 
 		const fragment = document.createDocumentFragment();
