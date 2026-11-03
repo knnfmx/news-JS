@@ -1,3 +1,5 @@
+import { Category, SortBy } from './enums';
+
 export interface ArticleSource {
 	id: string | null;
 	name: string;
@@ -46,19 +48,20 @@ export interface ErrorResponse extends NewsApiResponse {
 export interface NewsApiBaseParams {
 	apiKey?: string;
 }
+
 export interface EverythingParams extends NewsApiBaseParams {
 	sources?: string;
 	q?: string;
 	from?: string;
 	to?: string;
 	language?: string;
-	sortBy?: 'relevancy' | 'popularity' | 'publishedAt';
+	sortBy?: SortBy;
 	pageSize?: number;
 	page?: number;
 }
 
 export interface SourcesParams extends NewsApiBaseParams {
-	category?: string;
+	category?: Category;
 	language?: string;
 	country?: string;
 }
