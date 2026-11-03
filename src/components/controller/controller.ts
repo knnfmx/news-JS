@@ -22,7 +22,7 @@ class AppController extends AppLoader {
 					super.getResp<EverythingResponse>(
 						{
 							endpoint: 'everything',
-							options: { apiKey: '', sources: sourceId },
+							options: { sources: sourceId },
 						},
 						callback
 					);
