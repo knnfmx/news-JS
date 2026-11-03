@@ -1,33 +1,52 @@
 .sources {
 	display: flex;
 	flex-wrap: nowrap;
+	gap: 8px;
 	width: 100%;
-	height: 120px;
-	overflow: auto;
-	align-items: center;
-	font:
-		300 1em 'Fira Sans',
-		sans-serif;
+	padding: 8px;
+	margin: 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+	font-family: inherit;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: thin;
 }
 
 .source__item {
-	background: none;
+	background: transparent;
 	border: 2px solid #30c5ff;
 	font: inherit;
-	line-height: 1;
-	margin: 0.5em;
-	padding: 1em 2em;
+	font-size: 0.9rem;
+	line-height: 1.2;
+	padding: 8px 16px;
 	color: #70d6ff;
-	transition: 0.25s;
+	white-space: nowrap;
+	transition:
+		border-color 0.2s,
+		color 0.2s,
+		box-shadow 0.2s,
+		transform 0.2s;
 	cursor: pointer;
+	border-radius: 4px;
+	flex-shrink: 0;
 }
 
 .source__item:hover,
-.source__item:focus {
+.source__item:focus-visible {
 	border-color: #3fcc59;
 	color: #69db7e;
-	box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
-	transform: translateY(-0.25em);
+	box-shadow: 0 4px 8px -2px #3fcc59;
+	transform: translateY(-2px);
+	outline: none;
+}
+
+.source__item:active {
+	transform: translateY(0);
+}
+
+.source__item[data-source-id]:focus-visible {
+	outline: 2px solid #3fcc59;
+	outline-offset: 2px;
 }
 
 .source__item-name {
@@ -38,15 +57,23 @@
 @media (min-width: 768px) {
 	.sources {
 		flex-direction: column;
+		flex-wrap: nowrap;
 		height: auto;
-		max-height: calc(100vh - 200px);
+		max-height: calc(100vh - 180px);
 		overflow-y: auto;
 		overflow-x: hidden;
 		align-items: stretch;
 		padding: 8px 20px 8px 0px;
+		gap: 4px;
 	}
 
 	.source__item {
-		margin: 4px 0;
+		margin: 0;
+		text-align: left;
+		width: 100%;
+	}
+
+	.source__item-name {
+		white-space: normal;
 	}
 }
