@@ -21,16 +21,44 @@ body {
 	flex-direction: column;
 }
 
-header {
+.app-header {
 	padding: 12px 16px;
 	border-bottom: 1px solid #2a2c33;
 }
 
-header h1 {
+.app-header__title {
 	margin: 0;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 800;
+	line-height: 1;
+}
+
+.app-header__logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: #fff;
+	text-decoration: none;
+	font-size: inherit;
+	font-weight: inherit;
 	letter-spacing: -0.02em;
+	transition: color 0.2s;
+}
+
+.app-header__logo:hover,
+.app-header__logo:focus-visible {
+	color: #30c5ff;
+	outline: none;
+}
+
+.app-header__logo:focus-visible {
+	outline: 2px solid #30c5ff;
+	outline-offset: 4px;
+	border-radius: 4px;
+}
+
+.app-header__logo svg {
+	flex-shrink: 0;
 }
 
 main {
@@ -74,34 +102,78 @@ main {
 	gap: 16px;
 }
 
-footer {
+.app-footer {
 	padding: 16px;
 	border-top: 1px solid #2a2c33;
+	background: #1a1c22;
+}
+
+.app-footer__content {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 8px;
-	color: #a2a2a2;
+	gap: 12px;
+	max-width: 1440px;
+	margin: 0 auto;
 	font-size: 14px;
-	text-align: center;
+	color: #a2a2a2;
 }
 
-footer a {
-	color: #30c5ff;
+.app-footer__links {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.app-footer__github,
+.app-footer__course {
+	align-items: center;
+	gap: 6px;
+	color: #a2a2a2;
 	text-decoration: none;
+	transition: color 0.2s;
 }
 
-footer a:hover {
-	text-decoration: underline;
+.app-footer__github:hover,
+.app-footer__github:focus-visible,
+.app-footer__course:hover,
+.app-footer__course:focus-visible {
+	color: #30c5ff;
+	outline: none;
+}
+
+.app-footer__github:focus-visible,
+.app-footer__course:focus-visible {
+	outline: 2px solid #30c5ff;
+	outline-offset: 4px;
+	border-radius: 4px;
+}
+
+.app-footer__github svg,
+.app-footer__course svg {
+	flex-shrink: 0;
+}
+
+.app-footer__year {
+	color: #6b6d75;
 }
 
 @media (min-width: 768px) {
-	header {
+	.app-footer__content {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+@media (min-width: 768px) {
+	.app-header {
 		padding: 16px 32px;
 	}
 
-	header h1 {
-		font-size: 32px;
+	.app-header__title {
+		font-size: 28px;
 	}
 
 	main {
@@ -116,8 +188,8 @@ footer a:hover {
 }
 
 @media (min-width: 1024px) {
-	header h1 {
-		font-size: 40px;
+	.app-header__title {
+		font-size: 32px;
 	}
 
 	main {
