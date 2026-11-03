@@ -1,3 +1,4 @@
+import type { Category } from '../../types/enums';
 import type { EverythingResponse, SourcesResponse } from '../../types/news-api';
 import AppLoader from './appLoader';
 
@@ -5,8 +6,8 @@ type SourcesCallback = (data: SourcesResponse) => void;
 type NewsCallback = (data: EverythingResponse) => void;
 
 class AppController extends AppLoader {
-	public getSources(callback: SourcesCallback): void {
-		super.getResp<SourcesResponse>({ endpoint: 'sources' }, callback);
+	public getSources(category: Category | undefined, callback: SourcesCallback): void {
+		super.getSources(category, callback);
 	}
 
 	public getNews(e: MouseEvent, callback: NewsCallback): void {

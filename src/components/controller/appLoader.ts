@@ -1,4 +1,5 @@
-import type { NewsApiParams } from '../../types/news-api';
+import type { Category } from '../../types/enums';
+import type { NewsApiParams, SourcesParams, SourcesResponse } from '../../types/news-api';
 import Loader from './loader';
 
 class AppLoader extends Loader {
@@ -11,6 +12,10 @@ class AppLoader extends Loader {
 		}
 		const options: NewsApiParams = { apiKey };
 		super(apiUrl, options);
+	}
+	public getSources(category: Category | undefined, callback: (data: SourcesResponse) => void): void {
+		const params: Partial<SourcesParams> = category !== undefined ? { category } : {};
+		super.getResp<SourcesResponse>({ endpoint: 'sources', options: params }, callback);
 	}
 }
 

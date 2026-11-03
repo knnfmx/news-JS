@@ -29,7 +29,7 @@ class Sources {
 
 		const sourcesContainer = document.querySelector('.sources') as HTMLElement | null;
 		if (sourcesContainer) {
-			sourcesContainer.append(fragment);
+			sourcesContainer.replaceChildren(fragment);
 		}
 	}
 }
