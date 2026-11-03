@@ -1,9 +1,16 @@
 import { Category, SortBy } from './enums';
 
-export interface ArticleSource {
-	id: string | null;
+export interface Source {
+	id: string;
 	name: string;
+	description: string;
+	url: string;
+	category: string;
+	language: string;
+	country: string;
 }
+
+export type ArticleSource = Readonly<Pick<Source, 'name'> & { id: string | null }>;
 
 export interface Article {
 	source: ArticleSource;
@@ -14,16 +21,6 @@ export interface Article {
 	urlToImage: string | null;
 	publishedAt: string;
 	content: string | null;
-}
-
-export interface Source {
-	id: string;
-	name: string;
-	description: string;
-	url: string;
-	category: string;
-	language: string;
-	country: string;
 }
 
 export interface NewsApiResponse {
